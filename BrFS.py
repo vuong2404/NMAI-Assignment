@@ -6,6 +6,7 @@ class NQueenBFS (NQueens):
         if self.size < 3:
             return []
         queue = Queue()
+        solutions = []
         queue.put([])
 
         while not queue.empty():
@@ -15,16 +16,14 @@ class NQueenBFS (NQueens):
                 continue
             row = len(solution)
             if row == self.size:
-                board = self.make_board(solution)
-                self.printBoard(board)
-                return board
+                solutions.append(solution)
             else:
                 for col in range(self.size):
-                    position = (row, col)
                     new_solution = solution.copy()
-                    new_solution.append(position)
+                    new_solution.append(col)
                     queue.put(new_solution)
         
-        return []
+        return solutions
+    
 
 
