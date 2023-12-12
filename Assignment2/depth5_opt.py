@@ -45,7 +45,7 @@ def select_move(cur_state, remain_time):
 #     return pos
 def reduce_moves(cur_state, moves):
     # winable_block = []
-    print("Waiting to reduces move.........")
+    # print("Waiting to reduces move.........")
     # time.sleep(10)
     winable_block_indices = []
     for i in range(9):
@@ -91,10 +91,10 @@ def minimax(gameState, player, depth, alpha, beta):
         return (evaluate(gameState), UltimateTTT_Move(-1, -1, -1, 0))
 
     moves = gameState.get_valid_moves
-    # if gameState.free_move:
-    #     print("before reduce, moves: ", len(moves))
-    #     moves = reduce_moves(gameState, moves)
-    #     print("after reduce, moves: ", len(moves))
+    if gameState.free_move:
+        # print("before reduce, moves: ", len(moves))
+        moves = reduce_moves(gameState, moves)
+        # print("after reduce, moves: ", len(moves))
 
     # For maximize plyer
     if player == 1:

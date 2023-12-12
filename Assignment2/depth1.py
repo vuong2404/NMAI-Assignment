@@ -15,7 +15,7 @@ def select_move(cur_state, remain_time):
         # print("Random choice")
         return np.random.choice(valid_moves)
 
-    utility, action = minimax(cur_state,cur_state.player_to_move, 5, -float('inf'), +float('inf'))
+    utility, action = minimax(cur_state,cur_state.player_to_move, 1, -float('inf'), +float('inf'))
     # print(utility)
     if action:
         # print("=================================================================")
